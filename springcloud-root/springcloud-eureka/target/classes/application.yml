@@ -1,0 +1,17 @@
+server:
+  port: 8888
+security: 
+    basic: 
+        enable: true
+    user: 
+        name: root
+        password: 123456
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #注册中心会自己注册客户端,用此两行把客户端禁用，只让注册中心启动服务端
+    register-with-eureka: false 
+    fetch-registry: false
+    service-url: 
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
